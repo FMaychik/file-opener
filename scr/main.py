@@ -4,11 +4,9 @@ from tkinter import ttk
 
 #functions
 def open_file():
-    f = open(entry.get(), 'r')
+    file= f"{entry.get()}.{combobox.get()}"
+    f = open(file, 'r')
     print(*f)
-#def selected(event):
-#    selection = combobox.get()
-#
 
 #window
 win = Tk()
@@ -18,10 +16,10 @@ win.geometry("300x300")
 entry = ttk.Entry()
 entry.pack(padx=8, pady= 8)
 
-#const = [".txt"]
-#combobox = ttk.Combobox(values=const)
-#combobox.pack(padx=6, pady=6)
-#combobox.bind("<<ComboboxSelected>>", selected)
+ext = ["txt", "html"]
+
+combobox = ttk.Combobox(values=ext, state="readonly")
+combobox.pack(padx=4, pady=4)
 
 btn = ttk.Button(text="Open", command=open_file)
 btn.pack()
